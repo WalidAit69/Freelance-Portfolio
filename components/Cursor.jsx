@@ -21,7 +21,7 @@ const Cursor = () => {
 
   return (
     <motion.div
-      className="hidden md:visible border rounded-full fixed z-[999] w-[50px] h-[50px]"
+      className="hidden md:block border rounded-full fixed z-[999] w-[50px] h-[50px]"
       animate={{ x: position.x + 7, y: position.y + 7 }}
       transition={{ type: "tween", ease: "backOut" }}
     ></motion.div>
