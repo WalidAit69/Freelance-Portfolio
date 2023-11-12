@@ -3,9 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import StarsCanvas from "@/components/main/StarBackground";
 import Navbar from "@/components/main/Navbar";
-import Cursor from "@/components/Cursor";
 import MobileNav from "@/components/main/MobileNav";
 import { Toaster } from "react-hot-toast";
+import Cursor from "@/components/Cursor";
 
 const inter = Inter({ subsets: ["latin"] });
 

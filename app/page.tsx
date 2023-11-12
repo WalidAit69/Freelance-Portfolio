@@ -4,9 +4,9 @@ import Encryption from "@/components/main/Encryption";
 import Hero from "@/components/main/Hero";
 import Projects from "@/components/main/Projects";
 import Skills from "@/components/main/Skills";
-import Parallax from "@/components/parallax/Parallax";
-import Contact from "@/components/main/Contact";
 import Footer from "@/components/main/Footer";
+import Contact from "@/components/main/Contact";
+import Parallax from "@/components/parallax/Parallax";
 
 export default function Home() {
 

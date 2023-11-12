@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-const Parallax = ({ type }) => {
-  const ref = useRef();
+const Parallax = ({ type }: { type: string }) => {
+  const ref = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -25,18 +25,24 @@ const Parallax = ({ type }) => {
             : "linear-gradient(180deg, #111132, #505064)",
       }}
     >
-      <motion.h1 style={{ y: yText }} className="text-6xl z-10 text-center md:text-8xl text-white font-bold">
+      <motion.h1
+        style={{ y: yText }}
+        className="text-6xl z-10 text-center md:text-8xl text-white font-bold"
+      >
         {type === "services" ? "What I Do?" : "What I Did?"}
       </motion.h1>
-      <motion.div className="bg-mountains bg-contain bg-no-repeat md:bg-cover bg-bottom w-[100%] h-[100%] 
-      absolute z-20"></motion.div>
+      <motion.div
+        className="bg-mountains bg-contain bg-no-repeat md:bg-cover bg-bottom w-[100%] h-[100%] 
+      absolute z-20"
+      ></motion.div>
       <motion.div
         className="bg-contain bg-no-repeat md:bg-cover bg-[#030014] bg-bottom w-[100%] h-[100%] 
         absolute z-[2]"
         style={{
           y: yBg,
-          backgroundImage: `url(${type === "services" ? "/planets.png" : "/sun.png"
-            })`,
+          backgroundImage: `url(${
+            type === "services" ? "/planets.png" : "/sun.png"
+          })`,
         }}
       ></motion.div>
     </section>

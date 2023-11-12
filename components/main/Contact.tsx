@@ -1,10 +1,9 @@
-'use client'
+"use client";
 
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import emailjs from "@emailjs/browser";
-import toast, { Toaster } from 'react-hot-toast';
-import Image from "next/image";
+import toast from "react-hot-toast";
 import ImageLoader from "../ImageLoader";
 
 const variants = {
@@ -23,15 +22,15 @@ const variants = {
 };
 
 const Contact = () => {
-  const ref = useRef();
-  const formRef = useRef();
+  const ref = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [loading, setloding] = useState(false)
+  const [loading, setloding] = useState(false);
 
   const isInView = useInView(ref, { margin: "-100px" });
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: any) => {
     e.preventDefault();
 
     setloding(true);
@@ -39,18 +38,18 @@ const Contact = () => {
       .sendForm(
         "service_6kzf67m",
         "template_s5huwor",
-        formRef.current,
+        formRef.current!,
         "BmmEM5sjNi0Nva_4K"
       )
       .then(
         (result) => {
-          toast.success('Email sent')
-          setSuccess(true)
-          formRef.current.reset();
+          toast.success("Email sent");
+          setSuccess(true);
+          formRef?.current?.reset();
           setloding(false);
         },
         (error) => {
-          toast.error('Error sending email')
+          toast.error("Error sending email");
           setError(true);
           setloding(false);
         }
@@ -66,8 +65,13 @@ const Contact = () => {
         initial="initial"
         whileInView="animate"
       >
-        <motion.div className="text-white lg:flex-1 flex flex-col lg:gap-10 gap-5 mt-32 lg:mt-0 text-center lg:text-start items-center lg:items-start" variants={variants}>
-          <motion.h1 variants={variants} className="lg:text-8xl text-4xl">Let’s work together</motion.h1>
+        <motion.div
+          className="text-white lg:flex-1 flex flex-col lg:gap-10 gap-5 mt-32 lg:mt-0 text-center lg:text-start items-center lg:items-start"
+          variants={variants}
+        >
+          <motion.h1 variants={variants} className="lg:text-8xl text-4xl">
+            Let’s work together
+          </motion.h1>
           <motion.div className="item" variants={variants}>
             <h2>Mail</h2>
             <span className="font-light">aitwalid2000@gmail.com</span>
@@ -116,10 +120,32 @@ const Contact = () => {
             whileInView={{ opacity: 1 }}
             transition={{ delay: 4, duration: 1 }}
           >
-            <input className="lg:p-5 p-2 bg-transparent border border-white text-white rounded-lg" type="text" required placeholder="Name" name="name" />
-            <input className="lg:p-5 p-2 bg-transparent border border-white text-white rounded-lg" type="email" required placeholder="Email" name="email" />
-            <textarea className="lg:p-5 p-2 bg-transparent border border-white text-white rounded-lg" rows={8} placeholder="Message" name="message" />
-            <button className="p-2 lg:p-5 border-none bg-indigo-600 hover:bg-transparent cursor-pointer font-bold text-white disabled:bg-white disabled:cursor-not-allowed" disabled={loading}>{loading ? <ImageLoader /> : "Submit"}</button>
+            <input
+              className="lg:p-5 p-2 bg-transparent border border-white text-white rounded-lg"
+              type="text"
+              required
+              placeholder="Name"
+              name="name"
+            />
+            <input
+              className="lg:p-5 p-2 bg-transparent border border-white text-white rounded-lg"
+              type="email"
+              required
+              placeholder="Email"
+              name="email"
+            />
+            <textarea
+              className="lg:p-5 p-2 bg-transparent border border-white text-white rounded-lg"
+              rows={8}
+              placeholder="Message"
+              name="message"
+            />
+            <button
+              className="p-2 lg:p-5 border-none bg-indigo-600 hover:bg-transparent cursor-pointer font-bold text-white disabled:bg-white disabled:cursor-not-allowed"
+              disabled={loading}
+            >
+              {loading ? <ImageLoader /> : "Submit"}
+            </button>
           </motion.form>
         </div>
       </motion.div>
