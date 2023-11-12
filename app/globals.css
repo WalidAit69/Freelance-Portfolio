@@ -64,8 +64,20 @@
   display: none;
 }
 
-
-
 html {
+  scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+section {
+  height: 100vh;
+  width: 100vw;
+  scroll-snap-align: center;
+  overflow: hidden;
 }
