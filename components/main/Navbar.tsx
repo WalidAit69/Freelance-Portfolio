@@ -6,6 +6,7 @@ import Link from "next/link";
 import React from "react";
 import { useEffect, useState } from "react";
 import MobileNav from "./MobileNav";
+import Magnetic from "../framer/Magnetic";
 
 const Navbar = () => {
   const [scrollDown, setScrollDown] = useState(false);
@@ -37,13 +38,15 @@ const Navbar = () => {
               href="#about-me"
               className="h-auto w-auto flex flex-row items-center"
             >
-              <Image
-                src="/galaxy.png"
-                alt="logo"
-                width={40}
-                height={40}
-                className="cursor-pointer hover:animate-slowspin"
-              />
+              <Magnetic>
+                <Image
+                  src="/galaxy.png"
+                  alt="logo"
+                  width={40}
+                  height={40}
+                  className="cursor-pointer hover:animate-slowspin"
+                />
+              </Magnetic>
             </a>
 
             <div className="w-[500px] h-full flex flex-row items-center justify-between">
@@ -65,15 +68,17 @@ const Navbar = () => {
 
             <div className="flex flex-row gap-5">
               {Socials.map((social) => (
-                <Link href={social.link} key={social.name} target="_blank">
-                  <Image
-                    src={social.src}
-                    alt={social.name}
-                    key={social.name}
-                    width={24}
-                    height={24}
-                  />
-                </Link>
+                <Magnetic>
+                  <Link href={social.link} key={social.name} target="_blank">
+                    <Image
+                      src={social.src}
+                      alt={social.name}
+                      key={social.name}
+                      width={24}
+                      height={24}
+                    />
+                  </Link>
+                </Magnetic>
               ))}
             </div>
           </div>
