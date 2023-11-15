@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import StarsCanvas from "@/components/main/StarBackground";
-import Navbar from "@/components/main/Navbar";
 import MobileNav from "@/components/main/MobileNav";
 import { Toaster } from "react-hot-toast";
 import Cursor from "@/components/Cursor";
+import Navbar from "@/components/main/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
