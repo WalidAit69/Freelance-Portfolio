@@ -5,6 +5,13 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 const items = [
   {
+    id: 0,
+    title: "Mercedes Benz",
+    img: "https://ucarecdn.com/5e40239c-5b90-4762-b0a7-e59255525dad/",
+    link: "https://mercedes-benz-seven.vercel.app/",
+    desc: "Mercedes-Benz Landing Page recreated with next.js and tailwind Css",
+  },
+  {
     id: 1,
     title: "ROOMSY",
     img: "https://ucarecdn.com/5308eee3-eae5-4db9-aaa1-ca433abee310/",
